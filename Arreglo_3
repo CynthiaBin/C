@@ -1,0 +1,56 @@
+//Escriba un programa que solicite al usuario cinco valoresenteros y que muestre en pantalla los tres mayores en orden.
+
+#include<stdio.h>
+#include<stdlib.h>
+#define NUM_MAX 5
+
+int main()
+{
+    int a[NUM_MAX],i,aux,j=0;
+
+    for(i=0;i<NUM_MAX;i++) //Llena el arreglo
+    {
+        printf("Dame el %i numero\n",i+1);
+        scanf("%i",&a[i]);
+    }
+
+    printf("\nEl arreglo es:\n");
+    for(i=0;i<NUM_MAX;i++) //Muestra el arreglo
+    {
+        printf("\t %i",a[i]);
+    }
+
+    do//Algoritmo para ordenar el arreglo de forma acendente
+    {
+      for(i=0;i<NUM_MAX;i++)
+        {
+        if(a[i]>a[i+1])
+        {
+            aux=a[i];
+            a[i]=a[i+1];
+            a[i+1]=aux;
+        }
+        }
+    j++;
+    }while(j<=NUM_MAX);
+
+    printf("\n\n El arreglo ordenado:\n ");
+
+    for(i=0;i<NUM_MAX;i++)
+    {
+        printf("\t %i",a[i]);
+    }
+
+    printf("\n\nLos numeros mayores del arreglo son:\n ");
+
+    i=NUM_MAX-1;
+    do
+    {
+        printf("\t %i",a[i]);//Imprime los valores masaltos del arreglo iniciando por la ultima posicion
+        i--;
+    }while(i>(NUM_MAX-4));
+
+    printf("\n\n");
+
+    return(EXIT_SUCCESS);
+}
